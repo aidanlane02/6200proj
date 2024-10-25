@@ -1,6 +1,6 @@
 import numpy as np
 
-def hydropower(vol, height, maxPower, efficiency = 0.9): #might adjust either efficiency or how height is calculated to match actual output
+def hydropower(vol, height, maxPower, efficiency = 0.8): #efficiency of 0.8 lines up best with the actual dam power output
     #returns the amount of power generated in MW
     m3s = 28.316847*vol
     height_m = height*0.3048

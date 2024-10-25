@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from HydroModelv1 import hydropower
+from HydroFlowAdjustment import flowAdjustment
 
 
 graniteUp = pd.read_csv(r'Data\LowerGraniteForebay.csv', delimiter=',')
@@ -18,9 +19,9 @@ downTouple = [graniteDown,gooseDown,monumentalDown,iceDown]
 
 #DAM BREACH STATUS
 graniteBreach = False
-gooseBreach = True
-monumentalBreach = True
-iceBreach = True
+gooseBreach = False
+monumentalBreach = False
+iceBreach = False
 breachTouple = [graniteBreach,gooseBreach,monumentalBreach,iceBreach]
 
 
@@ -39,10 +40,11 @@ icePower, iceEnergy = hydropowerVec(iceUp['Outflow (kcfs)'].tolist(), iceUp['Ele
 totPower = granitePower + goosePower + monumentalPower + icePower
 totEnergy = graniteEnergy + gooseEnergy + monumentalEnergy + iceEnergy
 
+upTouple,downTouple = flowAdjustment(upTouple,downTouple,breachTouple)
 
 
 """
-#GRAPHING CODE
+#POWER GRAPHING
 time = pd.date_range(start='2022-01-01', end='2023-12-31', freq='D')
 power_series = pd.Series(totPower, index=time)
 energy_series = pd.Series(totEnergy, index=time)
@@ -67,3 +69,20 @@ plt.grid(True)
 fig.autofmt_xdate()
 plt.show()
 """
+
+'''
+#FLOW GRAPHING
+flow = upTouple[3]['Inflow (kcfs)']
+time = pd.date_range(start='2022-01-01', end='2023-12-31', freq='D')
+#graph
+fig, ax1 = plt.subplots(figsize=(10, 6))
+ax1.plot(time, flow, label='Inflow (kcfs)', color='r')
+ax1.set_xlabel('Time')
+ax1.set_ylabel('Inflow (kcfs)', color='r')
+ax1.tick_params(axis='y', labelcolor='r')
+
+plt.title('Inflow at Ice Harbor with all dams normal')
+plt.grid(True)
+fig.autofmt_xdate()
+plt.show()
+'''     
