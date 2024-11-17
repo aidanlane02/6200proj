@@ -31,10 +31,10 @@ monumentalCap = 810
 iceCap = 603
 
 hydropowerVec = np.vectorize(hydropower)
-granitePower, graniteEnergy = hydropowerVec(graniteUp['Outflow (kcfs)'].tolist(), graniteUp['Elevation (ft)'] - graniteDown['Tailwater Elevation (ft)'], graniteCap)
-goosePower, gooseEnergy = hydropowerVec(gooseUp['Outflow (kcfs)'].tolist(), gooseUp['Elevation (ft)'] - gooseDown['Tailwater Elevation (ft)'], gooseCap)
-monumentalPower, monumentalEnergy = hydropowerVec(monumentalUp['Outflow (kcfs)'].tolist(), monumentalUp['Elevation (ft)'] - monumentalDown['Tailwater Elevation (ft)'], monumentalCap)
-icePower, iceEnergy = hydropowerVec(iceUp['Outflow (kcfs)'].tolist(), iceUp['Elevation (ft)'] - iceDown['Tailwater Elevation (ft)'], iceCap)
+granitePower, graniteEnergy = hydropowerVec((graniteUp['Outflow (kcfs)']-graniteUp['Spill (kcfs)']).tolist(), graniteUp['Elevation (ft)'] - graniteDown['Tailwater Elevation (ft)'], graniteCap)
+goosePower, gooseEnergy = hydropowerVec((gooseUp['Outflow (kcfs)']-gooseUp['Spill (kcfs)']).tolist(), gooseUp['Elevation (ft)'] - gooseDown['Tailwater Elevation (ft)'], gooseCap)
+monumentalPower, monumentalEnergy = hydropowerVec((monumentalUp['Outflow (kcfs)']-monumentalUp['Spill (kcfs)']).tolist(), monumentalUp['Elevation (ft)'] - monumentalDown['Tailwater Elevation (ft)'], monumentalCap)
+icePower, iceEnergy = hydropowerVec((iceUp['Outflow (kcfs)']-iceUp['Spill (kcfs)']).tolist(), iceUp['Elevation (ft)'] - iceDown['Tailwater Elevation (ft)'], iceCap)
 
 #sum total power (don't need to take into account if dam is breached because water height differential will be 0)
 totPower = granitePower + goosePower + monumentalPower + icePower
