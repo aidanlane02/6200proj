@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from HydroModelv1 import hydropower
 from HydroFlowAdjustment import flowAdjustment
+from WTT import WTT
 
 
 graniteUp = pd.read_csv(r'Data\LowerGraniteForebay.csv', delimiter=',')
@@ -40,8 +41,15 @@ icePower, iceEnergy = hydropowerVec((iceUp['Outflow (kcfs)']-iceUp['Spill (kcfs)
 totPower = granitePower + goosePower + monumentalPower + icePower
 totEnergy = graniteEnergy + gooseEnergy + monumentalEnergy + iceEnergy
 
+#adjust flows
 upTouple,downTouple = flowAdjustment(upTouple,downTouple,breachTouple)
 
+
+#WTT model in vector format (can also be done using average over a year)
+spillPerTouple = [graniteDown['Spill Percent (%)'],gooseDown['Spill Percent (%)'],monumentalDown['Spill Percent (%)'],iceDown['Spill Percent (%)']]
+WTTdays = WTT(breachTouple,spillPerTouple)
+print(min(WTTdays))
+print(max(WTTdays))
 
 """
 #POWER GRAPHING
