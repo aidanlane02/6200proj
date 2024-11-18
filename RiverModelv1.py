@@ -48,8 +48,7 @@ upTouple,downTouple = flowAdjustment(upTouple,downTouple,breachTouple)
 #WTT model in vector format (can also be done using average over a year)
 spillPerTouple = [graniteDown['Spill Percent (%)'],gooseDown['Spill Percent (%)'],monumentalDown['Spill Percent (%)'],iceDown['Spill Percent (%)']]
 WTTdays = WTT(breachTouple,spillPerTouple)
-print(min(WTTdays))
-print(max(WTTdays))
+
 
 """
 #POWER GRAPHING
