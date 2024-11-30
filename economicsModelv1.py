@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd
 from HydroModelv2 import hydroPowerList
-
+from freightModel import freightCost
 
 #currently only works for single year I think
-def cost(upTouple, downTouple, breachTouple, maxPowerTouple, baseEnergy, transportationCost, energyCost, breachCost):
+def cost(upTouple, downTouple, breachTouple, maxPowerTouple, baseEnergy, energyCost, breachCost):
     totCost = 0
     
     #cost of energy lost from hydropower
@@ -15,8 +15,8 @@ def cost(upTouple, downTouple, breachTouple, maxPowerTouple, baseEnergy, transpo
     totBreachCost = sum(breachTouple)*breachCost
 
     #cost of transportation
-    #tbd
+    transportCost = freightCost(breachTouple)
 
-    totCost = energyReplacementCost + totBreachCost
+    totCost = energyReplacementCost + totBreachCost + transportCost
     return totCost
 
