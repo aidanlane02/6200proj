@@ -1,0 +1,196 @@
+GroupDescription,MigrYr,SpeciesCode,RearCode,RaceCode,SAR_Reach,JuvPop,SARwoJacks,SARwoJacks_LCI,SARwoJacks_UCI,SARwJacks,SARwJacks_LCI,SARwJacks_UCI
+"John Day River Wild Spring Chinook",2021,CH,W,Spr,"John Day Dam to Bonneville Dam",3316,2.38,1.42,3.52,2.59,1.54,3.84
+"Yakima River Wild Spring Chinook",2021,CH,W,Spr,"McNary Dam to Bonneville Dam",1302,1.15,.54,1.99,1.46,.69,2.50
+"Yakima River Wild Spring Chinook",2021,CH,W,Spr,"McNary Dam to McNary Dam",1302,1.08,.50,1.90,1.46,.70,2.49
+"John Day River Wild Spring Chinook",2020,CH,W,Spr,"John Day Dam to Bonneville Dam",1628,4.24,2.97,5.56,5.10,3.55,6.59
+"John Day River Wild Steelhead",2020,ST,W,Sum,"John Day Dam to Bonneville Dam",3531,,,,1.90,1.41,2.36
+"Yakima River Wild Spring Chinook",2020,CH,W,Spr,"McNary Dam to Bonneville Dam",857,2.57,1.42,3.71,3.03,1.73,4.41
+"Yakima River Wild Spring Chinook",2020,CH,W,Spr,"McNary Dam to McNary Dam",857,2.45,1.31,3.61,2.92,1.66,4.29
+"Umatilla River Wild Steelhead",2020,ST,W,Sum,"John Day Dam to Bonneville Dam",5605,,,,2.46,2.04,2.94
+"Yakima River Wild Steelhead",2020,ST,W,Sum,"McNary Dam to Bonneville Dam",319,,,,3.13,.49,5.20
+"Yakima River Wild Steelhead",2020,ST,W,Sum,"McNary Dam to McNary Dam",319,,,,3.44,.55,5.64
+"Deschutes River Wild Steelhead",2019,ST,W,Sum,"Bonneville Dam to Bonneville Dam",135,,,,.00,.00,2.19
+"Hanford Reach Wild Fall Chinook",2019,CH,W,Fall,"McNary Dam to Bonneville Dam",2446,.78,.38,1.27,.78,.38,1.27
+"Hanford Reach Wild Fall Chinook",2019,CH,W,Fall,"Release Site to Bonneville Dam",9989,.19,.12,.28,.19,.12,.26
+"John Day River Wild Spring Chinook",2019,CH,W,Spr,"John Day Dam to Bonneville Dam",1087,1.56,.90,2.28,2.02,1.24,2.92
+"John Day River Wild Steelhead",2019,ST,W,Sum,"John Day Dam to Bonneville Dam",2262,,,,.57,.31,.86
+"Yakima River Wild Spring Chinook",2019,CH,W,Spr,"McNary Dam to Bonneville Dam",780,2.18,1.30,3.12,2.57,1.58,3.62
+"Yakima River Wild Spring Chinook",2019,CH,W,Spr,"McNary Dam to McNary Dam",780,1.80,1.01,2.66,2.18,1.34,3.15
+"Umatilla River Wild Steelhead",2019,ST,W,Sum,"John Day Dam to Bonneville Dam",1964,,,,.10,.00,.24
+"Yakima River Wild Steelhead",2019,ST,W,Sum,"McNary Dam to Bonneville Dam",205,,,,.49,.00,1.46
+"Yakima River Wild Steelhead",2019,ST,W,Sum,"McNary Dam to McNary Dam",205,,,,.49,.00,1.46
+"Deschutes River Wild Steelhead",2018,ST,W,Sum,"Bonneville Dam to Bonneville Dam",215,,,,9.32,3.61,17.65
+"Hanford Reach Wild Fall Chinook",2018,CH,W,Fall,"McNary Dam to Bonneville Dam",2426,1.52,1.00,2.06,1.52,1.00,2.06
+"Hanford Reach Wild Fall Chinook",2018,CH,W,Fall,"Release Site to Bonneville Dam",9987,.37,.28,.49,.37,.28,.49
+"John Day River Wild Spring Chinook",2018,CH,W,Spr,"John Day Dam to Bonneville Dam",2610,2.34,1.82,2.92,2.68,2.12,3.32
+"John Day River Wild Steelhead",2018,ST,W,Sum,"John Day Dam to Bonneville Dam",2249,,,,4.05,3.13,5.01
+"Yakima River Wild Spring Chinook",2018,CH,W,Spr,"McNary Dam to Bonneville Dam",474,1.05,.38,1.86,1.05,.38,1.86
+"Yakima River Wild Spring Chinook",2018,CH,W,Spr,"McNary Dam to McNary Dam",474,.84,.21,1.60,.84,.21,1.60
+"Umatilla River Wild Steelhead",2018,ST,W,Sum,"John Day Dam to Bonneville Dam",2864,,,,1.89,1.39,2.37
+"Yakima River Wild Steelhead",2018,ST,W,Sum,"McNary Dam to Bonneville Dam",640,,,,1.56,.46,4.60
+"Yakima River Wild Steelhead",2018,ST,W,Sum,"McNary Dam to McNary Dam",640,,,,1.09,.33,3.28
+"Deschutes River Wild Fall Chinook",2017,CH,W,Fall,"Bonneville Dam to Bonneville Dam",5419,1.13,.67,1.67,1.44,.85,2.07
+"Deschutes River Wild Fall Chinook",2017,CH,W,Fall,"Release Site to Bonneville Dam",24526,.25,.20,.31,.32,.26,.38
+"Deschutes River Wild Steelhead",2017,ST,W,Sum,"Bonneville Dam to Bonneville Dam",1914,,,,2.25,1.19,3.51
+"Hanford Reach Wild Fall Chinook",2017,CH,W,Fall,"McNary Dam to Bonneville Dam",2968,.51,.29,.74,.51,.29,.74
+"Hanford Reach Wild Fall Chinook",2017,CH,W,Fall,"Release Site to Bonneville Dam",9989,.15,.09,.23,.15,.09,.23
+"John Day River Wild Spring Chinook",2017,CH,W,Spr,"John Day Dam to Bonneville Dam",2833,.92,.64,1.24,1.31,.97,1.68
+"John Day River Wild Steelhead",2017,ST,W,Sum,"John Day Dam to Bonneville Dam",1551,,,,2.58,1.83,3.31
+"Yakima River Wild Spring Chinook",2017,CH,W,Spr,"McNary Dam to Bonneville Dam",464,1.29,.48,2.24,1.72,.76,2.80
+"Yakima River Wild Spring Chinook",2017,CH,W,Spr,"McNary Dam to McNary Dam",464,1.08,.36,1.97,1.51,.63,2.51
+"Umatilla River Wild Steelhead",2017,ST,W,Sum,"John Day Dam to Bonneville Dam",3958,,,,1.72,1.36,2.07
+"Yakima River Wild Steelhead",2017,ST,W,Sum,"McNary Dam to Bonneville Dam",186,,,,2.69,.78,4.85
+"Yakima River Wild Steelhead",2017,ST,W,Sum,"McNary Dam to McNary Dam",186,,,,1.62,.31,3.40
+"Deschutes River Wild Fall Chinook",2016,CH,W,Fall,"Release Site to Bonneville Dam",24492,.10,.07,.14,.15,.11,.19
+"Deschutes River Wild Fall Chinook",2016,CH,W,Fall,"Bonneville Dam to Bonneville Dam",3676,.68,.32,1.15,.98,.49,1.60
+"Deschutes River Wild Steelhead",2016,ST,W,Sum,"Bonneville Dam to Bonneville Dam",659,,,,5.16,3.28,7.05
+"Hanford Reach Wild Fall Chinook",2016,CH,W,Fall,"Release Site to Bonneville Dam",9926,.12,.07,.18,.13,.08,.20
+"Hanford Reach Wild Fall Chinook",2016,CH,W,Fall,"McNary Dam to Bonneville Dam",4968,.24,.12,.40,.26,.13,.44
+"John Day River Wild Spring Chinook",2016,CH,W,Spr,"John Day Dam to Bonneville Dam",2243,2.10,1.56,2.62,2.63,2.02,3.25
+"John Day River Wild Steelhead",2016,ST,W,Sum,"John Day Dam to Bonneville Dam",1113,,,,5.39,4.09,6.75
+"Yakima River Wild Spring Chinook",2016,CH,W,Spr,"McNary Dam to Bonneville Dam",241,.41,.00,1.23,.41,.00,1.23
+"Yakima River Wild Spring Chinook",2016,CH,W,Spr,"McNary Dam to McNary Dam",241,.41,.00,1.23,.41,.00,1.23
+"Umatilla River Wild Steelhead",2016,ST,W,Sum,"John Day Dam to Bonneville Dam",3536,,,,2.63,2.09,3.18
+"Yakima River Wild Steelhead",2016,ST,W,Sum,"McNary Dam to McNary Dam",308,,,,3.25,1.28,5.88
+"Yakima River Wild Steelhead",2016,ST,W,Sum,"McNary Dam to Bonneville Dam",308,,,,3.25,1.28,5.88
+"Deschutes River Wild Fall Chinook",2015,CH,W,Fall,"Bonneville Dam to Bonneville Dam",4578,.17,.07,.31,.24,.10,.41
+"Deschutes River Wild Fall Chinook",2015,CH,W,Fall,"Release Site to Bonneville Dam",24930,.03,.02,.06,.04,.02,.07
+"Deschutes River Wild Steelhead",2015,ST,W,Sum,"Bonneville Dam to Bonneville Dam",664,,,,1.81,.97,2.80
+"Hanford Reach Wild Fall Chinook",2015,CH,W,Fall,"McNary Dam to Bonneville Dam",4389,.05,.00,.14,.05,.00,.14
+"Hanford Reach Wild Fall Chinook",2015,CH,W,Fall,"Release Site to Bonneville Dam",4965,.04,.00,.08,.04,.00,.08
+"John Day River Wild Spring Chinook",2015,CH,W,Spr,"John Day Dam to Bonneville Dam",988,3.54,2.36,4.65,5.37,3.70,6.87
+"John Day River Wild Steelhead",2015,ST,W,Sum,"John Day Dam to Bonneville Dam",1561,,,,1.79,1.16,2.36
+"Yakima River Wild Spring Chinook",2015,CH,W,Spr,"McNary Dam to Bonneville Dam",1730,1.45,.91,2.03,1.73,1.14,2.39
+"Yakima River Wild Spring Chinook",2015,CH,W,Spr,"McNary Dam to McNary Dam",1730,1.27,.79,1.79,1.56,1.02,2.17
+"Umatilla River Wild Steelhead",2015,ST,W,Sum,"John Day Dam to Bonneville Dam",5203,,,,1.46,1.14,1.84
+"Yakima River Wild Steelhead",2015,ST,W,Sum,"McNary Dam to Bonneville Dam",324,,,,1.54,.44,2.69
+"Yakima River Wild Steelhead",2015,ST,W,Sum,"McNary Dam to McNary Dam",324,,,,.93,.00,1.91
+"Deschutes River Wild Fall Chinook",2014,CH,W,Fall,"Release Site to Bonneville Dam",19899,.15,.11,.20,.21,.16,.27
+"Deschutes River Wild Fall Chinook",2014,CH,W,Fall,"Bonneville Dam to Bonneville Dam",3809,.79,.47,1.19,1.10,.70,1.61
+"Deschutes River Wild Steelhead",2014,ST,W,Sum,"Bonneville Dam to Bonneville Dam",516,,,,6.98,4.13,10.31
+"Hanford Reach Wild Fall Chinook",2014,CH,W,Fall,"Release Site to Bonneville Dam",9940,.23,.16,.33,.29,.21,.40
+"Hanford Reach Wild Fall Chinook",2014,CH,W,Fall,"McNary Dam to Bonneville Dam",3415,.67,.45,.90,.85,.60,1.10
+"John Day River Wild Spring Chinook",2014,CH,W,Spr,"John Day Dam to Bonneville Dam",2192,3.83,3.03,4.67,4.24,3.39,5.10
+"John Day River Wild Steelhead",2014,ST,W,Sum,"John Day Dam to Bonneville Dam",1287,,,,5.13,3.82,6.58
+"Yakima River Wild Spring Chinook",2014,CH,W,Spr,"McNary Dam to Bonneville Dam",1489,2.08,1.48,2.74,2.35,1.72,3.10
+"Yakima River Wild Spring Chinook",2014,CH,W,Spr,"McNary Dam to McNary Dam",1489,1.75,1.21,2.39,1.95,1.40,2.65
+"Umatilla River Wild Steelhead",2014,ST,W,Sum,"John Day Dam to Bonneville Dam",5294,,,,4.78,4.08,5.51
+"Yakima River Wild Steelhead",2014,ST,W,Sum,"McNary Dam to McNary Dam",329,,,,5.17,2.78,7.77
+"Yakima River Wild Steelhead",2014,ST,W,Sum,"McNary Dam to Bonneville Dam",329,,,,5.78,3.21,8.39
+"Deschutes River Wild Fall Chinook",2013,CH,W,Fall,"Bonneville Dam to Bonneville Dam",8439,.58,.35,.83,.91,.58,1.29
+"Deschutes River Wild Fall Chinook",2013,CH,W,Fall,"Release Site to Bonneville Dam",26322,.19,.14,.24,.29,.24,.35
+"Deschutes River Wild Steelhead",2013,ST,W,Sum,"Bonneville Dam to Bonneville Dam",443,,,,2.71,1.22,4.96
+"Hanford Reach Wild Fall Chinook",2013,CH,W,Fall,"McNary Dam to Bonneville Dam",1458,2.40,1.65,3.26,2.74,1.91,3.64
+"Hanford Reach Wild Fall Chinook",2013,CH,W,Fall,"Release Site to Bonneville Dam",4184,.84,.62,1.11,.96,.72,1.24
+"John Day River Wild Spring Chinook",2013,CH,W,Spr,"John Day Dam to Bonneville Dam",2702,4.18,3.39,4.97,5.11,4.22,6.00
+"John Day River Wild Steelhead",2013,ST,W,Sum,"John Day Dam to Bonneville Dam",1530,,,,10.06,8.30,12.16
+"Yakima River Wild Spring Chinook",2013,CH,W,Spr,"McNary Dam to Bonneville Dam",2244,1.65,1.22,2.11,2.05,1.56,2.59
+"Yakima River Wild Spring Chinook",2013,CH,W,Spr,"McNary Dam to McNary Dam",2244,1.60,1.18,2.07,2.01,1.50,2.54
+"Umatilla River Wild Steelhead",2013,ST,W,Sum,"John Day Dam to Bonneville Dam",1673,,,,4.12,3.12,5.20
+"Yakima River Wild Steelhead",2013,ST,W,Sum,"McNary Dam to Bonneville Dam",250,,,,5.20,1.38,10.08
+"Yakima River Wild Steelhead",2013,ST,W,Sum,"McNary Dam to McNary Dam",250,,,,4.00,.96,8.21
+"Deschutes River Wild Fall Chinook",2012,CH,W,Fall,"Release Site to Bonneville Dam",20798,.25,.19,.30,.31,.25,.38
+"Deschutes River Wild Fall Chinook",2012,CH,W,Fall,"Bonneville Dam to Bonneville Dam",6997,.73,.45,1.07,.93,.57,1.34
+"Deschutes River Wild Steelhead",2012,ST,W,Sum,"Bonneville Dam to Bonneville Dam",2627,,,,5.52,3.77,7.18
+"Hanford Reach Wild Fall Chinook",2012,CH,W,Fall,"Release Site to Bonneville Dam",4885,.49,.33,.68,.51,.35,.70
+"Hanford Reach Wild Fall Chinook",2012,CH,W,Fall,"McNary Dam to Bonneville Dam",1407,1.71,1.09,2.35,1.78,1.15,2.46
+"John Day River Wild Spring Chinook",2012,CH,W,Spr,"John Day Dam to Bonneville Dam",4748,3.12,2.63,3.61,3.81,3.26,4.36
+"John Day River Wild Steelhead",2012,ST,W,Sum,"John Day Dam to Bonneville Dam",3103,,,,5.61,4.73,6.52
+"Yakima River Wild Spring Chinook",2012,CH,W,Spr,"McNary Dam to Bonneville Dam",1944,2.78,2.15,3.46,3.24,2.55,4.00
+"Yakima River Wild Spring Chinook",2012,CH,W,Spr,"McNary Dam to McNary Dam",1944,2.67,2.09,3.36,3.14,2.45,3.90
+"Umatilla River Wild Steelhead",2012,ST,W,Sum,"John Day Dam to Bonneville Dam",816,,,,5.14,3.51,6.90
+"Yakima River Wild Steelhead",2012,ST,W,Sum,"McNary Dam to McNary Dam",427,,,,4.69,2.66,6.67
+"Yakima River Wild Steelhead",2012,ST,W,Sum,"McNary Dam to Bonneville Dam",427,,,,6.80,4.11,9.42
+"Deschutes River Wild Fall Chinook",2011,CH,W,Fall,"Bonneville Dam to Bonneville Dam",5689,2.39,1.54,3.32,3.06,2.03,4.18
+"Deschutes River Wild Fall Chinook",2011,CH,W,Fall,"Release Site to Bonneville Dam",19897,.68,.58,.78,.87,.77,.98
+"Deschutes River Wild Steelhead",2011,ST,W,Sum,"Bonneville Dam to Bonneville Dam",3722,,,,4.14,3.15,5.15
+"Hanford Reach Wild Fall Chinook",2011,CH,W,Fall,"McNary Dam to Bonneville Dam",4050,3.21,2.64,3.83,3.46,2.86,4.12
+"Hanford Reach Wild Fall Chinook",2011,CH,W,Fall,"Release Site to Bonneville Dam",10337,1.26,1.08,1.44,1.35,1.18,1.55
+"John Day River Wild Spring Chinook",2011,CH,W,Spr,"John Day Dam to Bonneville Dam",2554,.90,.58,1.23,.94,.62,1.28
+"John Day River Wild Steelhead",2011,ST,W,Sum,"John Day Dam to Bonneville Dam",2279,,,,1.93,1.45,2.48
+"Yakima River Wild Spring Chinook",2011,CH,W,Spr,"McNary Dam to Bonneville Dam",3180,.85,.58,1.13,.97,.69,1.27
+"Yakima River Wild Spring Chinook",2011,CH,W,Spr,"McNary Dam to McNary Dam",3180,.75,.50,1.02,.88,.61,1.17
+"Umatilla River Wild Steelhead",2011,ST,W,Sum,"John Day Dam to Bonneville Dam",1307,,,,1.22,.74,1.78
+"Yakima River Wild Steelhead",2011,ST,W,Sum,"McNary Dam to Bonneville Dam",216,,,,3.25,1.35,5.47
+"Yakima River Wild Steelhead",2011,ST,W,Sum,"McNary Dam to McNary Dam",216,,,,2.32,.78,4.25
+"Deschutes River Wild Steelhead",2010,ST,W,Sum,"Bonneville Dam to Bonneville Dam",813,,,,3.94,2.64,5.54
+"Hanford Reach Wild Fall Chinook",2010,CH,W,Fall,"Release Site to Bonneville Dam",4850,.78,.58,.99,.89,.66,1.11
+"Hanford Reach Wild Fall Chinook",2010,CH,W,Fall,"McNary Dam to Bonneville Dam",1433,2.65,1.89,3.41,3.00,2.18,3.73
+"John Day River Wild Spring Chinook",2010,CH,W,Spr,"John Day Dam to Bonneville Dam",3098,3.55,3.02,4.16,4.84,4.20,5.53
+"John Day River Wild Steelhead",2010,ST,W,Sum,"John Day Dam to Bonneville Dam",3194,,,,6.07,5.13,6.84
+"Yakima River Wild Spring Chinook",2010,CH,W,Spr,"McNary Dam to Bonneville Dam",3338,1.38,1.05,1.73,1.86,1.46,2.29
+"Yakima River Wild Spring Chinook",2010,CH,W,Spr,"McNary Dam to McNary Dam",3338,1.17,.86,1.51,1.53,1.17,1.93
+"Yakima River Wild Steelhead",2010,ST,W,Sum,"McNary Dam to McNary Dam",336,,,,4.47,2.15,7.08
+"Yakima River Wild Steelhead",2010,ST,W,Sum,"McNary Dam to Bonneville Dam",336,,,,5.66,2.86,8.76
+"Deschutes River Wild Steelhead",2009,ST,W,Sum,"Bonneville Dam to Bonneville Dam",1820,,,,8.52,6.80,10.49
+"Hanford Reach Wild Fall Chinook",2009,CH,W,Fall,"McNary Dam to Bonneville Dam",4384,.75,.52,.98,.94,.69,1.20
+"Hanford Reach Wild Fall Chinook",2009,CH,W,Fall,"Release Site to Bonneville Dam",13728,.24,.17,.31,.30,.22,.38
+"John Day River Wild Spring Chinook",2009,CH,W,Spr,"John Day Dam to Bonneville Dam",3220,6.77,5.92,7.61,7.11,6.21,7.97
+"John Day River Wild Steelhead",2009,ST,W,Sum,"John Day Dam to Bonneville Dam",2570,,,,7.63,6.57,8.61
+"Yakima River Wild Spring Chinook",2009,CH,W,Spr,"McNary Dam to Bonneville Dam",2111,4.36,3.63,5.16,4.78,4.02,5.61
+"Yakima River Wild Spring Chinook",2009,CH,W,Spr,"McNary Dam to McNary Dam",2111,3.69,3.04,4.42,4.12,3.43,4.88
+"Yakima River Wild Steelhead",2009,ST,W,Sum,"McNary Dam to Bonneville Dam",360,,,,5.27,3.15,7.40
+"Yakima River Wild Steelhead",2009,ST,W,Sum,"McNary Dam to McNary Dam",360,,,,4.72,2.79,6.77
+"Deschutes River Wild Steelhead",2008,ST,W,Sum,"Bonneville Dam to Bonneville Dam",1321,,,,9.62,7.20,12.36
+"Hanford Reach Wild Fall Chinook",2008,CH,W,Fall,"Release Site to Bonneville Dam",16651,.68,.58,.79,.77,.65,.88
+"Hanford Reach Wild Fall Chinook",2008,CH,W,Fall,"McNary Dam to Bonneville Dam",5528,2.04,1.69,2.44,2.32,1.91,2.75
+"John Day River Wild Spring Chinook",2008,CH,W,Spr,"John Day Dam to Bonneville Dam",2956,5.51,4.76,6.30,6.26,5.44,7.09
+"John Day River Wild Steelhead",2008,ST,W,Sum,"John Day Dam to Bonneville Dam",3033,,,,10.35,9.26,11.40
+"Yakima River Wild Spring Chinook",2008,CH,W,Spr,"McNary Dam to Bonneville Dam",2795,4.69,3.97,5.41,5.80,5.03,6.58
+"Yakima River Wild Spring Chinook",2008,CH,W,Spr,"McNary Dam to McNary Dam",2795,4.04,3.39,4.68,5.08,4.35,5.80
+"Yakima River Wild Steelhead",2008,ST,W,Sum,"McNary Dam to McNary Dam",235,,,,8.07,4.64,11.74
+"Yakima River Wild Steelhead",2008,ST,W,Sum,"McNary Dam to Bonneville Dam",235,,,,8.92,5.24,12.78
+"Deschutes River Wild Steelhead",2007,ST,W,Sum,"Bonneville Dam to Bonneville Dam",926,,,,7.67,5.22,10.13
+"Hanford Reach Wild Fall Chinook",2007,CH,W,Fall,"McNary Dam to Bonneville Dam",7836,.34,.24,.45,.45,.32,.58
+"Hanford Reach Wild Fall Chinook",2007,CH,W,Fall,"Release Site to Bonneville Dam",21007,.13,.09,.17,.17,.12,.21
+"John Day River Wild Spring Chinook",2007,CH,W,Spr,"John Day Dam to Bonneville Dam",2726,4.33,3.66,5.04,5.06,4.31,5.82
+"John Day River Wild Steelhead",2007,ST,W,Sum,"John Day Dam to Bonneville Dam",2864,,,,8.83,7.68,9.98
+"Yakima River Wild Spring Chinook",2007,CH,W,Spr,"McNary Dam to Bonneville Dam",1066,1.50,.92,2.08,1.50,.92,2.08
+"Yakima River Wild Spring Chinook",2007,CH,W,Spr,"McNary Dam to McNary Dam",1066,1.50,.91,2.12,1.50,.91,2.12
+"Yakima River Wild Steelhead",2007,ST,W,Sum,"McNary Dam to Bonneville Dam",219,,,,7.30,3.15,11.98
+"Yakima River Wild Steelhead",2007,ST,W,Sum,"McNary Dam to McNary Dam",219,,,,6.39,2.75,10.78
+"Deschutes River Wild Steelhead",2006,ST,W,Sum,"Bonneville Dam to Bonneville Dam",802,,,,8.36,5.79,11.39
+"John Day River Wild Spring Chinook",2006,CH,W,Spr,"John Day Dam to Bonneville Dam",2237,2.06,1.68,2.49,2.06,1.56,2.57
+"John Day River Wild Steelhead",2006,ST,W,Sum,"John Day Dam to Bonneville Dam",1923,,,,3.33,2.64,3.99
+"Yakima River Wild Spring Chinook",2006,CH,W,Spr,"McNary Dam to Bonneville Dam",2632,1.67,1.28,2.12,2.13,1.66,2.63
+"Yakima River Wild Spring Chinook",2006,CH,W,Spr,"McNary Dam to McNary Dam",2632,1.60,1.21,2.03,2.05,1.60,2.54
+"Yakima River Wild Steelhead",2006,ST,W,Sum,"McNary Dam to McNary Dam",397,,,,3.27,1.88,5.07
+"Yakima River Wild Steelhead",2006,ST,W,Sum,"McNary Dam to Bonneville Dam",397,,,,4.03,2.41,5.92
+"Hanford Reach Wild Fall Chinook",2005,CH,W,Fall,"Release Site to Bonneville Dam",22634,.08,.04,.11,.08,.05,.12
+"Hanford Reach Wild Fall Chinook",2005,CH,W,Fall,"McNary Dam to Bonneville Dam",6539,.26,.16,.36,.29,.18,.41
+"John Day River Wild Spring Chinook",2005,CH,W,Spr,"John Day Dam to Bonneville Dam",3835,1.85,1.49,2.26,2.06,1.68,2.49
+"John Day River Wild Steelhead",2005,ST,W,Sum,"John Day Dam to Bonneville Dam",3530,,,,2.80,2.35,3.31
+"Yakima River Wild Spring Chinook",2005,CH,W,Spr,"McNary Dam to Bonneville Dam",2491,1.28,.91,1.67,1.37,.98,1.76
+"Yakima River Wild Spring Chinook",2005,CH,W,Spr,"McNary Dam to McNary Dam",2491,1.12,.78,1.48,1.20,.83,1.58
+"Yakima River Wild Steelhead",2005,ST,W,Sum,"McNary Dam to Bonneville Dam",263,,,,4.94,2.55,7.93
+"Yakima River Wild Steelhead",2005,ST,W,Sum,"McNary Dam to McNary Dam",263,,,,4.56,2.24,7.29
+"Hanford Reach Wild Fall Chinook",2004,CH,W,Fall,"Release Site to Bonneville Dam",2989,.07,.00,.17,.07,.00,.17
+"Hanford Reach Wild Fall Chinook",2004,CH,W,Fall,"McNary Dam to Bonneville Dam",1004,.20,.00,.46,.20,.00,.46
+"John Day River Wild Spring Chinook",2004,CH,W,Spr,"John Day Dam to Bonneville Dam",2805,3.14,2.46,3.81,3.32,2.60,4.00
+"John Day River Wild Steelhead",2004,ST,W,Sum,"John Day Dam to Bonneville Dam",2583,,,,4.26,3.50,5.02
+"Yakima River Wild Spring Chinook",2004,CH,W,Spr,"McNary Dam to Bonneville Dam",4912,2.63,2.25,3.02,2.85,2.46,3.27
+"Yakima River Wild Spring Chinook",2004,CH,W,Spr,"McNary Dam to McNary Dam",4912,2.38,2.03,2.75,2.65,2.30,3.05
+"Yakima River Wild Steelhead",2004,ST,W,Sum,"McNary Dam to Bonneville Dam",387,,,,2.84,1.44,4.38
+"Yakima River Wild Steelhead",2004,ST,W,Sum,"McNary Dam to McNary Dam",387,,,,2.58,1.17,4.10
+"Hanford Reach Wild Fall Chinook",2003,CH,W,Fall,"McNary Dam to Bonneville Dam",930,.43,.10,.79,.43,.10,.79
+"Hanford Reach Wild Fall Chinook",2003,CH,W,Fall,"Release Site to Bonneville Dam",2975,.13,.03,.24,.13,.03,.24
+"John Day River Wild Spring Chinook",2003,CH,W,Spr,"John Day Dam to Bonneville Dam",4434,2.77,2.34,3.22,2.89,2.45,3.36
+"Yakima River Wild Spring Chinook",2003,CH,W,Spr,"McNary Dam to Bonneville Dam",8002,1.67,1.43,1.92,1.91,1.65,2.15
+"Yakima River Wild Spring Chinook",2003,CH,W,Spr,"McNary Dam to McNary Dam",8002,1.60,1.36,1.83,1.82,1.57,2.08
+"Yakima River Wild Steelhead",2003,ST,W,Sum,"McNary Dam to Bonneville Dam",293,,,,7.85,4.80,11.02
+"Yakima River Wild Steelhead",2003,ST,W,Sum,"McNary Dam to McNary Dam",293,,,,6.49,3.84,9.16
+"John Day River Wild Spring Chinook",2002,CH,W,Spr,"John Day Dam to Bonneville Dam",2513,3.78,3.03,4.52,3.98,3.22,4.73
+"Yakima River Wild Spring Chinook",2002,CH,W,Spr,"McNary Dam to Bonneville Dam",4236,2.31,1.92,2.75,2.38,1.99,2.82
+"Yakima River Wild Spring Chinook",2002,CH,W,Spr,"McNary Dam to McNary Dam",4236,2.08,1.70,2.46,2.15,1.79,2.53
+"Yakima River Wild Steelhead",2002,ST,W,Sum,"McNary Dam to McNary Dam",365,,,,6.03,3.62,8.39
+"Yakima River Wild Steelhead",2002,ST,W,Sum,"McNary Dam to Bonneville Dam",365,,,,7.94,5.07,10.73
+"Hanford Reach Wild Fall Chinook",2001,CH,W,Fall,"Release Site to Bonneville Dam",9973,.25,.16,.34,.26,.17,.35
+"Hanford Reach Wild Fall Chinook",2001,CH,W,Fall,"McNary Dam to Bonneville Dam",3662,.68,.44,.91,.71,.46,.95
+"John Day River Wild Spring Chinook",2001,CH,W,Spr,"John Day Dam to Bonneville Dam",2749,3.86,3.29,4.50,4.11,3.50,4.81
+"Yakima River Wild Spring Chinook",2001,CH,W,Spr,"McNary Dam to McNary Dam",3578,.81,.56,1.07,1.06,.77,1.36
+"Yakima River Wild Spring Chinook",2001,CH,W,Spr,"McNary Dam to Bonneville Dam",3578,.89,.64,1.18,1.15,.86,1.46
+"Hanford Reach Wild Fall Chinook",2000,CH,W,Fall,"McNary Dam to Bonneville Dam",4555,2.66,2.25,3.08,2.86,2.41,3.28
+"Hanford Reach Wild Fall Chinook",2000,CH,W,Fall,"Release Site to Bonneville Dam",10967,1.10,.94,1.27,1.19,1.01,1.35
+"John Day River Wild Spring Chinook",2000,CH,W,Spr,"John Day Dam to Bonneville Dam",1300,10.77,9.15,12.33,11.00,9.33,12.62
+"Yakima River Wild Spring Chinook",2000,CH,W,Spr,"McNary Dam to Bonneville Dam",7329,5.47,5.00,5.99,5.69,5.20,6.21
+"Yakima River Wild Spring Chinook",2000,CH,W,Spr,"McNary Dam to McNary Dam",7329,4.80,4.37,5.29,4.80,4.37,5.29
