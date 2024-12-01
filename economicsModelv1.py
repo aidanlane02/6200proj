@@ -4,7 +4,7 @@ from HydroModelv2 import hydroPowerList
 from freightModel import freightCost
 
 #currently only works for single year I think
-def cost(upTouple, downTouple, breachTouple, maxPowerTouple, baseEnergy, energyCost, breachCost):
+def cost(upTouple, downTouple, breachTouple, maxPowerTouple, baseEnergy, energyCost = 0.0667, breachCost = 28504053.66):
     totCost = 0
     
     #cost of energy lost from hydropower

@@ -6,7 +6,7 @@ def SpillAdjuster(upTouple, downTouple, minSpill):
     newDownTouple = downTouple
 
     for i in range(4):
-        for j in range(len(upTouple['Date'])):
+        for j in range(len(upTouple[0]['Date'])):
             upTouple[i]['Spill Percent (%)'][j] = minSpill
             downTouple[i]['Spill Percent (%)'][j] = minSpill
             upTouple[i]['Spill (kcfs)'][j] = upTouple[i]['Outflow (kcfs)'][j]*minSpill/100

@@ -53,6 +53,13 @@ print(result_noTransport.summary())
 predicted_sar = result.predict(glm_data)
 glm_data['Predicted SAR'] = predicted_sar
 
+#convert SAR back
+glm_data['SAR'] = glm_data['SAR']*100
+glm_data['Predicted SAR'] = glm_data['Predicted SAR']*100
+
+#export
+glm_data.to_csv('Data\TrainingData\GLMTrainingResults.csv',index=False)
+
 import matplotlib.pyplot as plt
 
 # Separate data by Transported status

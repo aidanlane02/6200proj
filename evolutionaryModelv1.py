@@ -5,18 +5,21 @@ from HydroModelv2 import hydroPowerList
 from MinSpillAdjuster import SpillAdjuster
 from HydroFlowAdjustment import flowAdjustment
 from WTT import WTT
+from SARmodelv3 import SAR_model
+from economicsModelv1 import cost
 
+#SETUP FOR EA
 #set up testing data
-graniteUp = pd.read_csv(r'Data\LowerGraniteForebay.csv', delimiter=',')
-graniteDown = pd.read_csv(r'Data\LowerGraniteTailwater.csv', delimiter=',')
-gooseUp = pd.read_csv(r'Data\LittleGooseForebay.csv', delimiter=',')
-gooseDown = pd.read_csv(r'Data\LittleGooseTailwater.csv', delimiter=',')
-monumentalUp = pd.read_csv(r'Data\LowerMonumentalForebay.csv', delimiter=',')
-monumentalDown = pd.read_csv(r'Data\LowerMonumentalTailwater.csv', delimiter=',')
-iceUp = pd.read_csv(r'Data\IceHarborForebay.csv', delimiter=',')
-iceDown = pd.read_csv(r'Data\IceHarborTailwater.csv', delimiter=',')
-upTouple = [graniteUp,gooseUp,monumentalUp,iceUp]
-downTouple = [graniteDown,gooseDown,monumentalDown,iceDown]
+graniteUpTraining = pd.read_csv(r'Data\LowerGraniteForebay.csv', delimiter=',')
+graniteDownTraining = pd.read_csv(r'Data\LowerGraniteTailwater.csv', delimiter=',')
+gooseUpTraining = pd.read_csv(r'Data\LittleGooseForebay.csv', delimiter=',')
+gooseDownTraining = pd.read_csv(r'Data\LittleGooseTailwater.csv', delimiter=',')
+monumentalUpTraining = pd.read_csv(r'Data\LowerMonumentalForebay.csv', delimiter=',')
+monumentalDownTraining = pd.read_csv(r'Data\LowerMonumentalTailwater.csv', delimiter=',')
+iceUpTraining = pd.read_csv(r'Data\IceHarborForebay.csv', delimiter=',')
+iceDownTraining = pd.read_csv(r'Data\IceHarborTailwater.csv', delimiter=',')
+upTouple = [graniteUpTraining,gooseUpTraining,monumentalUpTraining,iceUpTraining]
+downTouple = [graniteDownTraining,gooseDownTraining,monumentalDownTraining,iceDownTraining]
 
 #DAM BREACH STATUS
 graniteBreach = False
@@ -34,105 +37,124 @@ maxPowerTouple = [graniteCap,gooseCap,monumentalCap,iceCap]
 
 #find baseline energy production
 baselineEnergy = (hydroPowerList(upTouple,downTouple,maxPowerTouple))
-print(baselineEnergy)
 
 
-#train model in this file
-#region
-import statsmodels.api as sm
-import statsmodels.formula.api as smf
-
-data = pd.read_csv(r'Data\TrainingData\GLMTraining.csv', delimiter=',')
-
-#convert SAR from percent to decimal
-data['SAR'] = data['SAR']/100
-
-glm_data = data.drop(columns=['Year','Species']) 
-
-#set limits to epsilon to avoid extreme value errors
-epsilon = 1e-10
-glm_data['SAR'] = glm_data['SAR'].clip(lower=epsilon, upper=1 - epsilon)
-
-formula = 'SAR ~ PH + FTD + WTT + Transport * FTD'
-
-model = smf.glm(formula=formula, data=glm_data, family=sm.families.Binomial())
-result = model.fit()
-
-#endregion
 
 
+
+#EA
+#choose data year for evaluation
+def dataYear(upTouple,downTouple,year):
+    upTouple['Date'] = pd.to_datetime(upTouple['Date'])
+    downTouple['Date'] = pd.to_datetime(downTouple['Date'])
+    filtered_upTouple = upTouple[upTouple['Date'].dt.year==year]
+    filtered_downTouple = downTouple[downTouple['Date'].dt.year==year]
+    return(filtered_downTouple,filtered_upTouple)
 
 #idk how anything below works (it currently doesn't)
-# Example: Precomputing dam effects for 16 combinations
 import itertools
-
-# List of dams
-dams = ["Dam1", "Dam2", "Dam3", "Dam4"]  # Add actual dam names
-combinations = list(itertools.product([0, 1], repeat=len(dams)))  # 0: not breached, 1: breached
-
-dam_scenarios = []
-for combo in combinations:
-    # Simulate the effects of each dam breach combination
-    breached = [dams[i] for i in range(len(dams)) if combo[i] == 1]
-    dam_scenarios.append({
-        "breached_dams": breached,
-        # Placeholder: Adjust these based on your model logic
-        "updated_dams_passed": calculate_dams_passed(breached),  
-        "updated_water_speed": calculate_water_speed(breached)  
-    })
-
-
 from deap import base, creator, tools, algorithms
 import random
+import matplotlib.pyplot as plt
+from functools import partial
 
-# Define the problem for DEAP
-creator.create("FitnessMin", base.Fitness, weights=(-1.0,))  # Minimize objective function
-creator.create("Individual", list, fitness=creator.FitnessMin)
 
+# Define multi-objective fitness
+creator.create("FitnessMulti", base.Fitness, weights=(-1.0, -1.0))  # Minimize both SAR and Economic Impact
+creator.create("Individual", list, fitness=creator.FitnessMulti)
+
+# Toolbox
 toolbox = base.Toolbox()
-toolbox.register("attr_float", random.uniform, 0, S_max)  # Spill between 0 and S_max
+toolbox.register("attr_float", random.uniform, 0, 100)  # Spill range: 0 to 100
 toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, n=1)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
-# Define evaluation function
-def evaluate(individual, sar_model, econ_model, dam_scenario):
-    spill = individual[0]
-    
-    # Update SAR model with spill
-    sar_result = sar_model(spill, dam_scenario["updated_water_speed"], dam_scenario["updated_dams_passed"])
-    
-    # Update economic model with spill
-    econ_result = econ_model(spill, dam_scenario["breached_dams"])
-    
-    # Combine results into an objective value
-    objective = combine_sar_and_econ(sar_result, econ_result)  # Define this based on your needs
-    
-    return (objective,)
-
-toolbox.register("evaluate", evaluate, sar_model=trained_sar_model, econ_model=economic_model, dam_scenario=dam_scenarios[0])
 toolbox.register("mate", tools.cxBlend, alpha=0.5)
 toolbox.register("mutate", tools.mutGaussian, mu=0, sigma=1, indpb=0.2)
-toolbox.register("select", tools.selTournament, tournsize=3)
+toolbox.register("select", tools.selNSGA2)
 
-# Evolve a solution for each dam scenario
-for scenario in dam_scenarios:
-    # Update evaluation function for the current dam scenario
-    toolbox.register("evaluate", evaluate, sar_model=trained_sar_model, econ_model=economic_model, dam_scenario=scenario)
-    
-    # Run the evolutionary algorithm
-    population = toolbox.population(n=50)
-    ngen = 100  # Number of generations
-    cxpb = 0.5  # Crossover probability
-    mutpb = 0.2  # Mutation probability
-    
-    algorithms.eaSimple(population, toolbox, cxpb, mutpb, ngen, verbose=True)
-    
-    # Find the best individual for this dam scenario
-    best_ind = tools.selBest(population, k=1)[0]
-    print(f"Best result for scenario {scenario['breached_dams']}: Spill = {best_ind[0]}, Objective = {best_ind.fitness.values[0]}")
+pd.options.mode.chained_assignment = None  #turn off warnings so I can find errors
 
-def combine_sar_and_econ(sar_result, econ_result):
-    # Weighted combination of fish SAR and economic model outputs
-    w_sar = 0.7  # Weight for fish SAR
-    w_econ = 0.3  # Weight for economic model
-    return w_sar * sar_result + w_econ * econ_result
+# Define dynamic evaluation function
+def evaluate(individual, breachTouple, upTouple, downTouple, maxPowerTouple, baselineEnergy, sar_model, econ_model):
+    minSpill = individual[0]  #min spill value
+
+    #adjust touples for spill and breach
+    (upTouple,downTouple) = SpillAdjuster(upTouple, downTouple, minSpill)
+    (upTouple,downTouple) = flowAdjustment(upTouple, downTouple, breachTouple)
+    
+    # Evaluate SAR model
+    sar_result = sar_model(downTouple,breachTouple)
+    
+    # Evaluate economic model
+    econ_result = econ_model(upTouple, downTouple, breachTouple, maxPowerTouple, baselineEnergy)
+    
+    
+    return (sar_result,econ_result)
+
+#copy code for NSGA2 because it can't be imported
+def run_nsga2(breachTouple, upTouple, downTouple, maxPowerTouple, baselineEnergy, sar_model, econ_model):
+    # Dynamically adapt the evaluation function
+    eval_func = partial(
+        evaluate,
+        breachTouple=breachTouple,
+        upTouple=upTouple,
+        downTouple=downTouple,
+        maxPowerTouple=maxPowerTouple,
+        baselineEnergy=baselineEnergy,
+        sar_model=sar_model,
+        econ_model=econ_model
+    )
+    toolbox.register("evaluate", eval_func)
+
+    # Create population
+    population = toolbox.population(n=100)
+
+    # Run NSGA-II
+    algorithms.eaMuPlusLambda(
+        population=population,
+        toolbox=toolbox,
+        mu=100,
+        lambda_=200,
+        cxpb=0.7,
+        mutpb=0.2,
+        ngen=50,
+        stats=None,
+        halloffame=None,
+        verbose=False,
+    )
+
+    # Extract Pareto front
+    pareto_front = tools.sortNondominated(population, len(population), first_front_only=True)[0]
+    return pareto_front
+
+# Dam Breach Scenarios
+dams = ["LGR", "LGS", "LMN", "ICE"]
+combinations = list(itertools.product([0, 1], repeat=len(dams)))  # All dam breach combinations
+
+# Run NSGA-II for each scenario
+pareto_results = []
+for scenario in combinations:
+    dams_destroyed = [dams[i] for i in range(len(dams)) if scenario[i] == 1]
+    pareto_front = run_nsga2(scenario, upTouple, downTouple, maxPowerTouple, baselineEnergy, SAR_model, cost)
+
+    pareto_results.append({
+        "scenario": dams_destroyed,
+        "pareto_front": [(ind[0], ind.fitness.values) for ind in pareto_front]
+    })
+
+# Visualize Pareto Fronts
+for result in pareto_results:
+    scenario = result["scenario"]
+    pareto_front = result["pareto_front"]
+
+    sar_values = [fitness[0] for _, fitness in pareto_front]
+    econ_values = [fitness[1] for _, fitness in pareto_front]
+
+    plt.figure(figsize=(8, 6))
+    plt.scatter(econ_values, sar_values, label=f"Scenario {scenario}")
+    plt.title(f"Pareto Front - Scenario {scenario}")
+    plt.xlabel("Economic Impact")
+    plt.ylabel("SAR")
+    plt.legend()
+    plt.grid()
+    plt.show()
