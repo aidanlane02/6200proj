@@ -21,20 +21,21 @@ def hydropower(vol, height, maxPower, efficiency = 0.8): #efficiency of 0.8 line
 
 def hydroPowerList(upTouple, downTouple, maxPowerTouple):
     #initialize arrays
-    out = downTouple['Date']
+    out = pd.DataFrame({'Date': downTouple[0]['Date']})
     granitePow = []
     goosePow = []
     monumentalPow = []
     icePow = []
+    totPow = []
 
-    for d in range(len(out)):
+    for d in range(len(out['Date'])):
         granitePow.append(hydropower((upTouple[0]['Outflow (kcfs)'][d]-upTouple[0]['Spill (kcfs)'][d]), upTouple[0]['Elevation (ft)'][d] - downTouple[0]['Tailwater Elevation (ft)'][d], maxPowerTouple[0]))
         goosePow.append(hydropower((upTouple[1]['Outflow (kcfs)'][d]-upTouple[1]['Spill (kcfs)'])[d], upTouple[1]['Elevation (ft)'][d] - downTouple[1]['Tailwater Elevation (ft)'][d], maxPowerTouple[1]))
         monumentalPow.append(hydropower((upTouple[2]['Outflow (kcfs)'][d]-upTouple[2]['Spill (kcfs)'][d]), upTouple[2]['Elevation (ft)'][d] - downTouple[2]['Tailwater Elevation (ft)'][d], maxPowerTouple[2]))
         icePow.append(hydropower((upTouple[3]['Outflow (kcfs)'][d]-upTouple[3]['Spill (kcfs)'][d]), upTouple[3]['Elevation (ft)'][d] - downTouple[3]['Tailwater Elevation (ft)'][d], maxPowerTouple[3]))
+        totPow.append(granitePow[d] + goosePow[d] + monumentalPow[d] + icePow[d])
 
-    totPow = granitePow + goosePow + monumentalPow + icePow
-    totEnergy = totPow * 24
+    totEnergy = [p * 24 for p in totPow]
 
     out['Lower Granite Power (MW)'] = granitePow
     out['Little Goose Power (MW)'] = goosePow
