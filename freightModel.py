@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-
+pd.options.mode.chained_assignment = None  # Turn off the warning
 def freightCost(breachTouple):
     AtoCL = 197.80+74.7 #Almota to Cascade Locks distance
     LtoCL = AtoCL+35.3 #Lewiston to Cascade Locks distance

@@ -11,13 +11,12 @@ def flowAdjustment(upTouple, downTouple, breachTouple):
             newDownTouple[i+1]['Inflow (kcfs)'] = newUpTouple[i+1]['Inflow (kcfs)'] + newUpTouple[i]['Inflow (kcfs)'] - newUpTouple[i]['Outflow (kcfs)'] 
             newUpTouple[i]['Outflow (kcfs)'] = newUpTouple[i]['Inflow (kcfs)']
             newDownTouple[i]['Outflow (kcfs)'] = newUpTouple[i]['Inflow (kcfs)']
-            newDownTouple[i]['Tailwater Elevation (ft)'] = newUpTouple[i]['Elevation (ft)']
+            newUpTouple[i]['Elevation (ft)'] = newDownTouple[i]['Tailwater Elevation (ft)']
 
     #check for dam 4 being breached (different scenario because there is no next dam to update)
     if breachTouple[3]:
-        newUpTouple[3]['Outflow (kcfs)'] = newUpTouple[4]['Inflow (kcfs)']
-        newDownTouple[3]['Outflow (kcfs)'] = newUpTouple[4]['Inflow (kcfs)']
-        newDownTouple[3]['Tailwater Elevation (ft)'] = newUpTouple[4]['Elevation (ft)']
-
+        newUpTouple[3]['Outflow (kcfs)'] = newUpTouple[3]['Inflow (kcfs)']
+        newDownTouple[3]['Outflow (kcfs)'] = newUpTouple[3]['Inflow (kcfs)']
+        newUpTouple[3]['Elevation (ft)'] = newDownTouple[3]['Tailwater Elevation (ft)']
 
     return(newUpTouple,newDownTouple)

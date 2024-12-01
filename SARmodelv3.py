@@ -2,17 +2,17 @@ import pandas as pd
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 from WTT import WTT
-
+pd.options.mode.chained_assignment = None  # Turn off the warning
 data = pd.read_csv(r'Data\TrainingData\GLMTraining.csv', delimiter=',')
 
 #convert SAR from percent to decimal
-data['SAR'] = data['SAR']/100
+data.loc[:,'SAR'] = data.loc[:,'SAR']/100
 
 glm_data = data.drop(columns=['Year','Species']) 
 
 #set limits to epsilon to avoid extreme value errors
 epsilon = 1e-10
-glm_data['SAR'] = glm_data['SAR'].clip(lower=epsilon, upper=1 - epsilon)
+glm_data.loc[:,'SAR'] = glm_data.loc[:,'SAR'].clip(lower=epsilon, upper=1 - epsilon)
 
 formula = 'SAR ~ PH + FTD + WTT + Transport * FTD'
 
@@ -34,7 +34,7 @@ def SAR_model(downTouple,breachTouple, WTT=WTT): #downTouple and upTouple must b
 
     PH = 16-sum(breachTouple)*2
 
-    glm_evo = pd.DataFrame({'PH':PH, 'FTD':FTD, 'WTT':WTT, 'Transport':Transport})
+    glm_evo = pd.DataFrame({'PH':[PH], 'FTD':[FTD], 'WTT':[WTT], 'Transport':[Transport]})
 
     predicted_sar = result.predict(glm_evo)
     return(predicted_sar)

@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from HydroModelv2 import hydroPowerList
-from HydroModelv2 import hydroPowerList
 from MinSpillAdjuster import SpillAdjuster
 from HydroFlowAdjustment import flowAdjustment
 from WTT import WTT
@@ -36,7 +35,7 @@ iceCap = 603
 maxPowerTouple = [graniteCap,gooseCap,monumentalCap,iceCap]
 
 #find baseline energy production
-baselineEnergy = (hydroPowerList(upTouple,downTouple,maxPowerTouple))
+baselineEnergy = sum(hydroPowerList(upTouple,downTouple,maxPowerTouple)['Total Energy (MWh)'])
 
 
 
@@ -76,20 +75,19 @@ pd.options.mode.chained_assignment = None  #turn off warnings so I can find erro
 
 # Define dynamic evaluation function
 def evaluate(individual, breachTouple, upTouple, downTouple, maxPowerTouple, baselineEnergy, sar_model, econ_model):
-    minSpill = individual[0]  #min spill value
+    minSpill = individual[0]  # min spill value
 
-    #adjust touples for spill and breach
-    (upTouple,downTouple) = SpillAdjuster(upTouple, downTouple, minSpill)
-    (upTouple,downTouple) = flowAdjustment(upTouple, downTouple, breachTouple)
-    
+    # Adjust touples for spill and breach
+    (upTouple, downTouple) = SpillAdjuster(upTouple, downTouple, minSpill)
+    (upTouple, downTouple) = flowAdjustment(upTouple, downTouple, breachTouple)
+
     # Evaluate SAR model
-    sar_result = sar_model(downTouple,breachTouple)
-    
+    sar_result = sar_model(downTouple, breachTouple)
     # Evaluate economic model
     econ_result = econ_model(upTouple, downTouple, breachTouple, maxPowerTouple, baselineEnergy)
-    
-    
-    return (sar_result,econ_result)
+
+    # Return fitness as a tuple, ensuring it's hashable
+    return (sar_result.item(), econ_result)
 
 #copy code for NSGA2 because it can't be imported
 def run_nsga2(breachTouple, upTouple, downTouple, maxPowerTouple, baselineEnergy, sar_model, econ_model):
@@ -107,17 +105,17 @@ def run_nsga2(breachTouple, upTouple, downTouple, maxPowerTouple, baselineEnergy
     toolbox.register("evaluate", eval_func)
 
     # Create population
-    population = toolbox.population(n=100)
+    population = toolbox.population(n=10)
 
     # Run NSGA-II
     algorithms.eaMuPlusLambda(
         population=population,
         toolbox=toolbox,
-        mu=100,
-        lambda_=200,
+        mu=10,
+        lambda_=20,
         cxpb=0.7,
         mutpb=0.2,
-        ngen=50,
+        ngen=5,
         stats=None,
         halloffame=None,
         verbose=False,
