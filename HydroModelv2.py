@@ -19,9 +19,9 @@ def hydropower(vol, height, maxPower, efficiency = 0.8): #efficiency of 0.8 line
     return(power_MW)
 
 
-def hydroPowerList(upTouple, downTouple, maxPowerTouple):
+def hydroPowerList(up, down, maxPower):
     #initialize arrays
-    out = pd.DataFrame({'Date': downTouple[0]['Date']})
+    out = pd.DataFrame({'Date': down[0]['Date']})
     granitePow = []
     goosePow = []
     monumentalPow = []
@@ -29,10 +29,10 @@ def hydroPowerList(upTouple, downTouple, maxPowerTouple):
     totPow = []
 
     for d in range(len(out['Date'])):
-        granitePow.append(hydropower((upTouple[0].loc[d,'Outflow (kcfs)']-upTouple[0].loc[d,'Spill (kcfs)']), upTouple[0].loc[d,'Elevation (ft)'] - downTouple[0].loc[d,'Tailwater Elevation (ft)'], maxPowerTouple[0]))
-        goosePow.append(hydropower((upTouple[1].loc[d,'Outflow (kcfs)']-upTouple[1].loc[d,'Spill (kcfs)']), upTouple[1].loc[d,'Elevation (ft)'] - downTouple[1].loc[d,'Tailwater Elevation (ft)'], maxPowerTouple[1]))
-        monumentalPow.append(hydropower((upTouple[2].loc[d,'Outflow (kcfs)']-upTouple[2].loc[d,'Spill (kcfs)']), upTouple[2].loc[d,'Elevation (ft)'] - downTouple[2].loc[d,'Tailwater Elevation (ft)'], maxPowerTouple[2]))
-        icePow.append(hydropower((upTouple[3].loc[d,'Outflow (kcfs)']-upTouple[3].loc[d,'Spill (kcfs)']), upTouple[3].loc[d,'Elevation (ft)'] - downTouple[3].loc[d,'Tailwater Elevation (ft)'], maxPowerTouple[3]))
+        granitePow.append(hydropower((up[0].loc[d,'Outflow (kcfs)']-up[0].loc[d,'Spill (kcfs)']), up[0].loc[d,'Elevation (ft)'] - down[0].loc[d,'Tailwater Elevation (ft)'], maxPower[0]))
+        goosePow.append(hydropower((up[1].loc[d,'Outflow (kcfs)']-up[1].loc[d,'Spill (kcfs)']), up[1].loc[d,'Elevation (ft)'] - down[1].loc[d,'Tailwater Elevation (ft)'], maxPower[1]))
+        monumentalPow.append(hydropower((up[2].loc[d,'Outflow (kcfs)']-up[2].loc[d,'Spill (kcfs)']), up[2].loc[d,'Elevation (ft)'] - down[2].loc[d,'Tailwater Elevation (ft)'], maxPower[2]))
+        icePow.append(hydropower((up[3].loc[d,'Outflow (kcfs)']-up[3].loc[d,'Spill (kcfs)']), up[3].loc[d,'Elevation (ft)'] - down[3].loc[d,'Tailwater Elevation (ft)'], maxPower[3]))
         totPow.append(granitePow[d] + goosePow[d] + monumentalPow[d] + icePow[d])
 
     totEnergy = [p * 24 for p in totPow]

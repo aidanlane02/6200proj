@@ -1,8 +1,9 @@
 import numpy as np
+import copy
 
 def flowAdjustment(upTouple, downTouple, breachTouple):
-    newUpTouple = upTouple
-    newDownTouple = downTouple
+    newUpTouple = copy.deepcopy(upTouple)
+    newDownTouple = copy.deepcopy(downTouple)
 
     #checks for first 3 dams breached, does not yet take into account lag time for water between dams
     for i in range(3):

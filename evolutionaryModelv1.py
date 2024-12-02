@@ -6,17 +6,18 @@ from HydroFlowAdjustment import flowAdjustment
 from WTT import WTT
 from SARmodelv3 import SAR_model
 from economicsModelv1 import cost
+import copy
 
 #SETUP FOR EA
 #set up testing data
-graniteUpTraining = pd.read_csv(r'Data\LowerGraniteForebay.csv', delimiter=',')
-graniteDownTraining = pd.read_csv(r'Data\LowerGraniteTailwater.csv', delimiter=',')
-gooseUpTraining = pd.read_csv(r'Data\LittleGooseForebay.csv', delimiter=',')
-gooseDownTraining = pd.read_csv(r'Data\LittleGooseTailwater.csv', delimiter=',')
-monumentalUpTraining = pd.read_csv(r'Data\LowerMonumentalForebay.csv', delimiter=',')
-monumentalDownTraining = pd.read_csv(r'Data\LowerMonumentalTailwater.csv', delimiter=',')
-iceUpTraining = pd.read_csv(r'Data\IceHarborForebay.csv', delimiter=',')
-iceDownTraining = pd.read_csv(r'Data\IceHarborTailwater.csv', delimiter=',')
+graniteUpTraining = pd.read_csv(r'Data\TrainingData\GraniteUpTraining.csv', delimiter=',')
+graniteDownTraining = pd.read_csv(r'Data\TrainingData\GraniteDownTraining.csv', delimiter=',')
+gooseUpTraining = pd.read_csv(r'Data\TrainingData\GraniteUpTraining.csv', delimiter=',')
+gooseDownTraining = pd.read_csv(r'Data\TrainingData\GooseDownTraining.csv', delimiter=',')
+monumentalUpTraining = pd.read_csv(r'Data\TrainingData\MonumentalUpTraining.csv', delimiter=',')
+monumentalDownTraining = pd.read_csv(r'Data\TrainingData\MonumentalDownTraining.csv', delimiter=',')
+iceUpTraining = pd.read_csv(r'Data\TrainingData\IceUpTraining.csv', delimiter=',')
+iceDownTraining = pd.read_csv(r'Data\TrainingData\IceDownTraining.csv', delimiter=',')
 upTouple = [graniteUpTraining,gooseUpTraining,monumentalUpTraining,iceUpTraining]
 downTouple = [graniteDownTraining,gooseDownTraining,monumentalDownTraining,iceDownTraining]
 
@@ -34,21 +35,29 @@ monumentalCap = 810
 iceCap = 603
 maxPowerTouple = [graniteCap,gooseCap,monumentalCap,iceCap]
 
-#find baseline energy production
-baselineEnergy = sum(hydroPowerList(upTouple,downTouple,maxPowerTouple)['Total Energy (MWh)'])
-
-
-
 
 
 #EA
 #choose data year for evaluation
 def dataYear(upTouple,downTouple,year):
-    upTouple['Date'] = pd.to_datetime(upTouple['Date'])
-    downTouple['Date'] = pd.to_datetime(downTouple['Date'])
-    filtered_upTouple = upTouple[upTouple['Date'].dt.year==year]
-    filtered_downTouple = downTouple[downTouple['Date'].dt.year==year]
-    return(filtered_downTouple,filtered_upTouple)
+    filtered_downTouple = []
+    filtered_upTouple = []
+    for i in range(4):
+        upTouple[i]['Date'] = pd.to_datetime(upTouple[i]['Date'])
+        downTouple[i]['Date'] = pd.to_datetime(downTouple[i]['Date'])
+        newUp = upTouple[i][upTouple[i]['Date'].dt.year==year]
+        newDown = downTouple[i][downTouple[i]['Date'].dt.year==year]
+        newUp = newUp.reset_index(drop=True)
+        newDown = newDown.reset_index(drop=True)
+        filtered_downTouple.append(newDown)
+        filtered_upTouple.append(newUp)
+    return(filtered_upTouple,filtered_downTouple)
+
+year = 2019 #can change
+(upTouple,downTouple) = dataYear(upTouple,downTouple,year)
+
+#find baseline energy production
+baselineEnergy = sum(hydroPowerList(upTouple,downTouple,maxPowerTouple)['Total Energy (MWh)'])
 
 #idk how anything below works (it currently doesn't)
 import itertools
@@ -59,7 +68,7 @@ from functools import partial
 
 
 # Define multi-objective fitness
-creator.create("FitnessMulti", base.Fitness, weights=(-1.0, -1.0))  # Minimize both SAR and Economic Impact
+creator.create("FitnessMulti", base.Fitness, weights=(1.0, -1.0))  # Minimize both SAR and Economic Impact
 creator.create("Individual", list, fitness=creator.FitnessMulti)
 
 # Toolbox
@@ -78,14 +87,14 @@ def evaluate(individual, breachTouple, upTouple, downTouple, maxPowerTouple, bas
     minSpill = individual[0]  # min spill value
 
     # Adjust touples for spill and breach
-    (upTouple, downTouple) = SpillAdjuster(upTouple, downTouple, minSpill)
-    (upTouple, downTouple) = flowAdjustment(upTouple, downTouple, breachTouple)
+    (newUpTouple, newDownTouple) = SpillAdjuster(copy.deepcopy(upTouple), copy.deepcopy(downTouple), minSpill)
+    (newUpTouple, newDownTouple) = flowAdjustment(newUpTouple, newDownTouple, breachTouple)
 
     # Evaluate SAR model
-    sar_result = sar_model(downTouple, breachTouple)
+    sar_result = sar_model(newDownTouple, breachTouple)
     # Evaluate economic model
-    econ_result = econ_model(upTouple, downTouple, breachTouple, maxPowerTouple, baselineEnergy)
-
+    econ_result = econ_model(newUpTouple, newDownTouple, breachTouple, maxPowerTouple, baselineEnergy)
+    
     # Return fitness as a tuple, ensuring it's hashable
     return (sar_result.item(), econ_result)
 
@@ -105,17 +114,17 @@ def run_nsga2(breachTouple, upTouple, downTouple, maxPowerTouple, baselineEnergy
     toolbox.register("evaluate", eval_func)
 
     # Create population
-    population = toolbox.population(n=10)
+    population = toolbox.population(n=5) #change for speed
 
     # Run NSGA-II
     algorithms.eaMuPlusLambda(
         population=population,
         toolbox=toolbox,
-        mu=10,
-        lambda_=20,
-        cxpb=0.7,
-        mutpb=0.2,
-        ngen=5,
+        mu=5, #change for speed
+        lambda_=10, #change for speed
+        cxpb=0.65,
+        mutpb=0.25,
+        ngen=3, #change for speed
         stats=None,
         halloffame=None,
         verbose=False,
@@ -141,6 +150,9 @@ for scenario in combinations:
     })
 
 # Visualize Pareto Fronts
+print(pareto_results[0]['pareto_front'])
+
+'''
 for result in pareto_results:
     scenario = result["scenario"]
     pareto_front = result["pareto_front"]
@@ -156,3 +168,4 @@ for result in pareto_results:
     plt.legend()
     plt.grid()
     plt.show()
+    '''

@@ -20,7 +20,7 @@ model = smf.glm(formula=formula, data=glm_data, family=sm.families.Binomial())
 result = model.fit()
 
 # Print a summary of the model
-#print(result.summary())
+print(result.summary())
 
 
 def SAR_model(downTouple,breachTouple, WTT=WTT): #downTouple and upTouple must be 1 year only
