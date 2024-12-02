@@ -10,6 +10,10 @@ data.loc[:,'SAR'] = data.loc[:,'SAR']/100
 
 glm_data = data.drop(columns=['Year','Species']) 
 
+#only non-transported fish
+#glm_data = glm_data[glm_data['Transport'] == False]
+#glm_data = glm_data.reset_index(drop=True)
+
 #set limits to epsilon to avoid extreme value errors
 epsilon = 1e-10
 glm_data.loc[:,'SAR'] = glm_data.loc[:,'SAR'].clip(lower=epsilon, upper=1 - epsilon)
@@ -24,17 +28,16 @@ print(result.summary())
 
 
 def SAR_model(downTouple,breachTouple, WTT=WTT): #downTouple and upTouple must be 1 year only
-
     FTD = 431.6*2
 
     WTTdays = WTT(breachTouple,downTouple)
-    WTT = sum(WTTdays)/len(WTTdays)
+    WTTyr = sum(WTTdays)/len(WTTdays)
 
     Transport = False
 
     PH = 16-sum(breachTouple)*2
 
-    glm_evo = pd.DataFrame({'PH':[PH], 'FTD':[FTD], 'WTT':[WTT], 'Transport':[Transport]})
+    glm_evo = pd.DataFrame({'PH':[PH], 'FTD':[FTD], 'WTT':[WTTyr], 'Transport':[Transport]})
 
     predicted_sar = result.predict(glm_evo)
     return(predicted_sar)

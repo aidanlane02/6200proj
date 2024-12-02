@@ -6,6 +6,7 @@ graniteDown = pd.read_csv(r'Data\TrainingData\GraniteDownTraining.csv', delimite
 gooseDown = pd.read_csv(r'Data\TrainingData\GooseDownTraining.csv', delimiter=',')
 monumentalDown = pd.read_csv(r'Data\TrainingData\MonumentalDownTraining.csv', delimiter=',')
 iceDown = pd.read_csv(r'Data\TrainingData\IceDownTraining.csv', delimiter=',')
+downTouple = [graniteDown,gooseDown,monumentalDown,iceDown]
 
 
 #find WTT days for all years
@@ -14,9 +15,8 @@ gooseBreach = False
 monumentalBreach = False
 iceBreach = False
 breachTouple = [graniteBreach,gooseBreach,monumentalBreach,iceBreach]
-spillPerTouple = [graniteDown['Spill Percent (%)'],gooseDown['Spill Percent (%)'],monumentalDown['Spill Percent (%)'],iceDown['Spill Percent (%)']]
 dates = graniteDown['Date']
-WTTdays = WTT(breachTouple,spillPerTouple)
+WTTdays = WTT(breachTouple,downTouple)
 
 
 #create WTT dataframe

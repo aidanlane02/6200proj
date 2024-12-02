@@ -36,7 +36,7 @@ result_transport = model_transport.fit()
 print(result_transport.summary())
 
 
-#model 3 for only transported fish
+#model 3 for only non transported fish
 glm_data_noTransport = glm_data[glm_data['Transport'] == False]
 glm_data_noTransport = glm_data_noTransport.reset_index(drop=True)
 
