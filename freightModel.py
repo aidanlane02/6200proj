@@ -17,7 +17,7 @@ def freightCost(breachTouple):
     if(breachTouple[0]):
         extraUnitCost = DallesCost-LewistonCost+LtoCL*unitCost
         extraCost = extraUnitCost*yearlyWeight
-    elif(breachTouple[1],breachTouple[2],breachTouple[3]):
+    elif(breachTouple[1] or breachTouple[2] or breachTouple[3]):
         extraUnitCost = DallesCost-2*LewistonCost+AlmotaCost+LtoCL*unitCost
         extraCost = extraUnitCost*yearlyWeight
     else:
