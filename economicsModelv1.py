@@ -13,7 +13,7 @@ def cost(upTouple, downTouple, breachTouple, maxPowerTouple, baseEnergy, energyC
                                                                 #but wind velocities are lower than places like the great planes so I used the upper end of the range as a safe
                                                                 #estimate ($23/MWh - $75/MWh)
     #cost of dam breaching
-    totBreachCost = sum(breachTouple)*breachCost*0.9 #annualization of the costs over the next 32 years (useful life) with a WACC of 8.3%
+    totBreachCost = sum(breachTouple)*breachCost*0.09 #annualization of the costs over the next 32 years (useful life) with a WACC of 8.3%
 
     #cost of transportation
     transportCost = freightCost(breachTouple)
