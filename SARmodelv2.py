@@ -13,7 +13,7 @@ glm_data = data.drop(columns=['Year','Species'])
 epsilon = 1e-10
 glm_data['SAR'] = glm_data['SAR'].clip(lower=epsilon, upper=1 - epsilon)
 
-formula = 'SAR ~ PH + FTD + WTT + Transport * FTD'
+formula = 'SAR ~ FTD * PH + WTT + Transport * FTD + Transport * PH'
 
 model = smf.glm(formula=formula, data=glm_data, family=sm.families.Binomial())
 result = model.fit()
