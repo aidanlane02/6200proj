@@ -11,13 +11,13 @@ dists = []
 for i in range(len(uncleanTransport['Year'])):
     if uncleanTransport['Location'][i]=='TLGR':
         damPasses.append(8)
-        dists.append(146.1+431)
+        dists.append(146.1)
     elif uncleanTransport['Location'][i]=='TLGS':
         damPasses.append(9)
-        dists.append(146.1+431+37)
+        dists.append(146.1+37)
     elif uncleanTransport['Location'][i]=='TLMN':
         damPasses.append(10)
-        dists.append(146.1+431+65.6)
+        dists.append(146.1+65.6)
 
 
 #add values to array

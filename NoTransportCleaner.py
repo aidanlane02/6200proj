@@ -15,31 +15,31 @@ dists = []
 for i in range(len(uncleanSnake['MigrYr'])): 
     if uncleanSnake['SAR_Reach'][i]=='Bonneville Dam to Bonneville Dam':
         damPasses.append(2)
-        dists.append(146.1*2)
+        dists.append(146.1)
     elif uncleanSnake['SAR_Reach'][i]=='John Day Dam to Bonneville Dam':
         damPasses.append(4)
-        dists.append(215.6+146.1)
+        dists.append(215.6)
     elif uncleanSnake['SAR_Reach'][i]=='Lower Granite Dam to Bonneville Dam':
         damPasses.append(9)
-        dists.append(431.6+146.1)
+        dists.append(431.6)
     elif uncleanSnake['SAR_Reach'][i]=='Lower Granite Dam to Lower Granite Dam':
         damPasses.append(16)
-        dists.append(431.6*2)
+        dists.append(431.6)
     elif uncleanSnake['SAR_Reach'][i]=='Lower Monumental Dam to Bonneville Dam':
         damPasses.append(7)
-        dists.append(366+146.1)
+        dists.append(366)
     elif uncleanSnake['SAR_Reach'][i]=='Lower Monumental Dam to Lower Monumental Dam':
         damPasses.append(12)
-        dists.append(366*2)
+        dists.append(366)
     elif uncleanSnake['SAR_Reach'][i]=='McNary Dam to Bonneville Dam':
         damPasses.append(5)
-        dists.append(292+146.1)
+        dists.append(292)
     elif uncleanSnake['SAR_Reach'][i]=='McNary Dam to McNary Dam':
         damPasses.append(8)
-        dists.append(292*2)
+        dists.append(292)
     elif uncleanSnake['SAR_Reach'][i]=='Release Site to Bonneville Dam':
         damPasses.append(1)
-        dists.append(146.1)
+        dists.append(0)
     else:
         damPasses.append(-1)
         dists.append(-1)
@@ -131,19 +131,19 @@ dists = []
 for i in range(len(uncleanColumbia['MigrYr'])):
     if uncleanColumbia['SAR_Reach'][i]=='Bonneville Dam to Bonneville Dam':
         damPasses.append(2)
-        dists.append(146.1*2)
+        dists.append(146.1)
     elif uncleanColumbia['SAR_Reach'][i]=='John Day Dam to Bonneville Dam':
         damPasses.append(4)
-        dists.append(215.6+146.1)
+        dists.append(215.6)
     elif uncleanColumbia['SAR_Reach'][i]=='McNary Dam to Bonneville Dam':
         damPasses.append(5)
-        dists.append(292+146.1)
+        dists.append(292)
     elif uncleanColumbia['SAR_Reach'][i]=='McNary Dam to McNary Dam':
         damPasses.append(8)
-        dists.append(292*2)
+        dists.append(292)
     elif uncleanColumbia['SAR_Reach'][i]=='Release Site to Bonneville Dam':
         damPasses.append(1)
-        dists.append(146.1)
+        dists.append(0)
     else: #error catching
         damPasses.append(-1)
         dists.append(-1)
